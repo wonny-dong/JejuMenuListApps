@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/setting_menu_alarm_title">
+        <CheckBoxPreference
+            android:key="UseAlarmForLunch"
+            android:title="@string/setting_lunch_alarm"
+            android:summary="@string/setting_lunch_alarm_summary" />
+        <com.dongwon.menulist.ui.dialog.SettingTimePickerDialog
+                android:key="AlarmShowTimeForLunch"
+                android:dependency="UseAlarmForLunch"
+            android:title="@string/setting_lunch_alarm_time" />
+
+        <CheckBoxPreference
+                android:key="UseAlarmForDinner"
+                android:title="@string/setting_dinner_alarm"
+                android:summary="@string/setting_dinner_alarm_summary" />
+        <com.dongwon.menulist.ui.dialog.SettingTimePickerDialog
+                android:key="AlarmShowTimeForDinner"
+                android:dependency="UseAlarmForDinner"
+                android:title="@string/setting_dinner_alarm_time" />
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="@string/setting_product_info_title">
+        <Preference
+                android:key="productUpdate"
+                android:title="@string/setting_product_release"
+                android:summary="@string/setting_product_release_summary" />
+        <Preference
+                android:key="version"
+                android:title="@string/setting_product_version" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
