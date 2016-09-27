@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:design="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    <LinearLayout
+            android:id="@+id/layout_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+        <TextView
+                android:id="@+id/tv_total_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-bold"
+                android:textColor="@color/app_theme_text_color"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="70dp"
+                android:textSize="32sp"/>
+        <ImageButton
+                android:id="@+id/btn_title_menu_1"
+                android:src="@drawable/ic_cafeteria_menu_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="4dp"/>
+    </LinearLayout>
+    <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/layout_title"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:numColumns="auto_fit"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"/>
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_floating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cafeteria_deposit"
+            android:layout_alignBottom="@+id/layout_title"
+            android:scaleType="center"
+            design:borderWidth="0dp"
+            design:fabSize="1"/>
+</RelativeLayout>
