@@ -7,9 +7,6 @@ import com.dongwon.menulist.service.ScheduleManagedService;
 import com.dongwon.menulist.util.TrackHelper;
 import com.google.android.gms.analytics.ExceptionReporter;
 
-/**
- * Created by dongwon-dev on 2015-04-20.
- */
 public class MenuListApp extends Application{
     private static MenuListApp instance;
 

@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "10544871075",
+    "project_id": "menulistapps-144717"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10544871075:android:824a431582374293",
+        "android_client_info": {
+          "package_name": "com.dongwon.menulist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNh1-LOmRycXReFJBt57bXlgeB2bHZXxc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-62650546-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
