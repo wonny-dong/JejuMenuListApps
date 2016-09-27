@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 FILE_APK = 'menu-list-1.0.3.apk'
-FILE_MENU = 'menulist-16-01'
+FILE_MENU = 'menulist-16-09'
 YEAR = 2016
 
 
