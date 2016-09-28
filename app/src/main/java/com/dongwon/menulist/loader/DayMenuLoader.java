@@ -15,9 +15,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * Created by dongwon-dev on 2015-04-20.
- */
+
 public class DayMenuLoader extends AsyncTaskLoader<List<MenuListAdapter.DayMenuData>> {
     private List<MenuListAdapter.DayMenuData> items;
 

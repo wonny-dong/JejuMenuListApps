@@ -5,17 +5,15 @@ import com.dongwon.menulist.R;
 import com.dongwon.menulist.type.DayMenuJson;
 import com.dongwon.menulist.type.FileInfoJson;
 import com.google.gson.Gson;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class HttpRequest {
     private Context context;
     private OkHttpClient okHttpClient;
@@ -25,30 +23,40 @@ public class HttpRequest {
         okHttpClient = new OkHttpClient();
     }
 
-    public FileInfoJson getFileInfo() throws IOException {
-        Request request = new Request.Builder()
-                .url(context.getString(R.string.update_url) + context.getString(R.string.info_file))
-                .build();
-        Response response = okHttpClient.newCall(request).execute();
-        return new Gson().fromJson(response.body().string(), FileInfoJson.class);
+    public FileInfoJson getFileInfo() throws IOException, IllegalAccessException {
+        return getJsonObject(context.getString(R.string.update_url) + context.getString(R.string.info_file), FileInfoJson.class);
     }
 
-    public DayMenuJson[] getDayMenu(String fileName) throws IOException {
-        Request request = new Request.Builder()
-                .url(context.getString(R.string.update_url) + fileName)
-                .build();
-        return new Gson().fromJson(okHttpClient.newCall(request).execute().body().string(), DayMenuJson[].class);
+    public DayMenuJson[] getDayMenu(String fileName) throws IOException, IllegalAccessException {
+        return getJsonObject(context.getString(R.string.update_url) + fileName, DayMenuJson[].class);
     }
 
-    public void getNewApk(File savePath, String urlPath) throws IOException {
+    public void getNewApk(File savePath, String urlPath) throws IOException, IllegalAccessException {
         Request request = new Request.Builder()
                 .url(context.getString(R.string.update_url) +urlPath)
                 .build();
         Response response = okHttpClient.newCall(request).execute();
 
-        if(savePath.exists()) savePath.deleteOnExit();
+        if(response.isSuccessful() == false){
+            throw new IllegalAccessException("http error code : " + response.code());
+        }
+
+        if(savePath.exists()) {
+            savePath.deleteOnExit();
+        }
         FileOutputStream fileOutputStream = new FileOutputStream(savePath);
         fileOutputStream.write(response.body().bytes());
         fileOutputStream.close();
+    }
+
+    private <T> T getJsonObject(String url, Class<T> returnObject) throws IOException, IllegalAccessException {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Response response = okHttpClient.newCall(request).execute();
+        if(response.isSuccessful()){
+            return new Gson().fromJson(response.body().string(), returnObject);
+        }
+        throw new IllegalAccessException("http error code : " + response.code());
     }
 }

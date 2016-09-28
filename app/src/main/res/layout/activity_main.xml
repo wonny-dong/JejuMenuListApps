@@ -30,12 +30,5 @@
             app:menu="@menu/left_drawer"
             app:itemIconTint="@color/left_drawer_text_selector"
             app:itemTextColor="@color/left_drawer_text_selector"/>
-    <!--<android.support.v7.widget.RecyclerView-->
-    <!--android:id="@+id/left_drawer"-->
-    <!--android:scrollbars="vertical"-->
-    <!--android:layout_width="240dp"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:layout_gravity="start"-->
-    <!--android:background="@android:color/white"/>-->
 </android.support.v4.widget.DrawerLayout>
 

@@ -13,9 +13,7 @@ import com.dongwon.menulist.service.ScheduleManagedService;
 import com.dongwon.menulist.util.Logger;
 import com.dongwon.menulist.util.TrackHelper;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Values preference;
 

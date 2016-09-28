@@ -4,9 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-/**
- * Created by dongwon-dev on 2015-04-22.
- */
+
 public class DeviceBootReceiver extends BroadcastReceiver {
 
     @Override

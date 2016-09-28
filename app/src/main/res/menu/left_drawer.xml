@@ -8,10 +8,6 @@
                 android:title="@string/left_drawer_menu_list"/>
         <item
                 android:id="@+id/left_drawer_2"
-                android:icon="@drawable/ic_cafeteria"
-                android:title="@string/left_drawer_cafeteria"/>
-        <item
-                android:id="@+id/left_drawer_3"
                 android:icon="@drawable/ic_settings"
                 android:title="@string/left_drawer_settings"/>
     </group>

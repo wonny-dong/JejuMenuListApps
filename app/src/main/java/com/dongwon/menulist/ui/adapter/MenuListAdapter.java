@@ -13,9 +13,6 @@ import com.dongwon.menulist.R;
 
 import java.util.*;
 
-/**
- * Created by Dongwon on 2015-04-24.
- */
 public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.MenuViewHolder>{
     private List<DayMenuData> items;
     private Context context;

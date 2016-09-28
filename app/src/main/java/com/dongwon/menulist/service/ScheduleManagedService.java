@@ -12,9 +12,7 @@ import com.dongwon.menulist.util.DateHelper;
 
 import java.util.Calendar;
 
-/**
- * Created by dongwon-dev on 2015-04-22.
- */
+
 public class ScheduleManagedService extends Service implements Runnable{
     private static final int ID_ALARM_LUNCH = 201;
     private static final int ID_ALARM_DINNER = 202;

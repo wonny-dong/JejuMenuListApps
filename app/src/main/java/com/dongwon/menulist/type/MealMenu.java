@@ -4,9 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 
 import java.util.Date;
 
-/**
- * Created by dongwon-dev on 2015-04-20.
- */
+
 public class MealMenu {
     public enum Distinction {Lunch, Dinner}
 

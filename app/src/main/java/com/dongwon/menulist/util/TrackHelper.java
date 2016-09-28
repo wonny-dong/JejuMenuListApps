@@ -1,15 +1,11 @@
 package com.dongwon.menulist.util;
 
-import android.content.Context;
 import com.dongwon.menulist.MenuListApp;
 import com.dongwon.menulist.R;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-/**
- * Created by dongwon-dev on 2015-05-06.
- */
 public class TrackHelper {
     private static Tracker tracker;
 

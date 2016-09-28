@@ -18,9 +18,6 @@ import com.dongwon.menulist.util.TrackHelper;
 import java.io.File;
 import java.io.FileInputStream;
 
-/**
- * Created by dongwon-dev on 2015-05-06.
- */
 public class ApkUpdateService extends Service{
     private ApkUpdateTask task;
 

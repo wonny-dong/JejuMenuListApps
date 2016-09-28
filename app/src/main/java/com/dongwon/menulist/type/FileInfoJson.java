@@ -1,8 +1,6 @@
 package com.dongwon.menulist.type;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class FileInfoJson {
     String apkHash;
     String apkFileName;

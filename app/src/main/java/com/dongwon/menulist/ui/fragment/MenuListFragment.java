@@ -24,9 +24,7 @@ import de.greenrobot.event.EventBus;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by dongwon-dev on 2015-04-20.
- */
+
 public class MenuListFragment extends BaseFragment implements LoaderManager.LoaderCallbacks<List<MenuListAdapter.DayMenuData>> {
     private static final int ID_LOADER_DAY_MENU = 1;
     private static final String TAG_LOADING_FRAGMENT = "loadingFragment";

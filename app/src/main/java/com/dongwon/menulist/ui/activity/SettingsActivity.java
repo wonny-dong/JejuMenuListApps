@@ -11,9 +11,7 @@ import butterknife.InjectView;
 import com.dongwon.menulist.R;
 import com.dongwon.menulist.ui.fragment.SettingsFragment;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class SettingsActivity extends BaseActivity{
     @InjectView(R.id.toolbar)
     Toolbar toolbar;

@@ -4,17 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
-import com.dongwon.menulist.MenuListApp;
-import com.dongwon.menulist.type.CafeteriaLogData;
-import com.dongwon.menulist.util.Logger;
 import com.dongwon.menulist.util.TrackHelper;
 
-import java.sql.SQLException;
-import java.util.List;
 
-/**
- * Created by dongwon-dev on 2015-04-22.
- */
 public class Values {
     public interface Type<T>{
         void init(SharedPreferences.Editor editor);
@@ -78,9 +70,7 @@ public class Values {
     }
 
     public enum IntType implements  Type<Integer>{
-        lastVersion(0),
-        CafeteriaMoney(0),
-        ;
+        lastVersion(0);
 
         private int defaultValue;
         IntType(int value){
@@ -149,16 +139,7 @@ public class Values {
 
     private void productUpdate(int pre, int now){
         if(pre < 103){
-            try {
-                int total = 0;
-                List<CafeteriaLogData> list = new DataBaseHelper(MenuListApp.getInstance()).getCafeteriaLogDataDao().queryForAll();
-                for(CafeteriaLogData data : list){
-                    total += data.getPrice();
-                }
-                put(IntType.CafeteriaMoney,  total);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 

@@ -4,24 +4,20 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.dongwon.menulist.R;
 import com.dongwon.menulist.ui.fragment.BaseFragment;
-import com.dongwon.menulist.ui.fragment.CafeteriaMainFragment;
 import com.dongwon.menulist.ui.fragment.MenuListFragment;
 import com.dongwon.menulist.ui.fragment.SettingsFragment;
 
-/**
- * Created by dongwon-dev on 2015-04-15.
- */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
     public final static String EXTRA_SELECTED_MENU = "EXTRA_SELECTED_MENU";
     @InjectView(R.id.toolbar)
@@ -42,7 +38,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setSupportActionBar(toolbar);
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.left_drawer_open, R.string.left_drawer_close);
-        drawerLayout.setDrawerListener(drawerToggle);
+        drawerLayout.addDrawerListener(drawerToggle);
         leftDrawer.setNavigationItemSelectedListener(this);
 
         if(savedInstanceState == null){
@@ -52,10 +48,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             Fragment nowFragment = getFragmentManager().findFragmentById(R.id.body_fragment);
             if(nowFragment instanceof MenuListFragment){
                 leftDrawer.getMenu().getItem(0).setChecked(true);
-            }else if(nowFragment instanceof CafeteriaMainFragment){
-                leftDrawer.getMenu().getItem(1).setChecked(true);
             }else if(nowFragment instanceof SettingsFragment){
-                leftDrawer.getMenu().getItem(2).setChecked(true);
+                leftDrawer.getMenu().getItem(1).setChecked(true);
             }
         }
     }
@@ -96,7 +90,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         }
 
-        if(drawerLayout.isDrawerOpen(Gravity.START|Gravity.LEFT)){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawers();
         }else{
             super.onBackPressed();
@@ -104,7 +98,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         drawerLayout.closeDrawer(leftDrawer);
         if(menuItem.isChecked()){
             return false;
@@ -114,8 +108,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             if(id == R.id.left_drawer_1){
                 replaceFragment = new MenuListFragment();
             } else if (id == R.id.left_drawer_2) {
-                replaceFragment = new CafeteriaMainFragment();
-            } else if (id == R.id.left_drawer_3) {
                 replaceFragment = new SettingsFragment();
             }
             if(replaceFragment != null){

@@ -21,15 +21,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class MenuListUpdateService extends Service implements Runnable {
     public static final String EXTRA_TASK = "task";
 
     public enum Task {AutoUpdate, PassiveUpdate}
 
-    public Task nowTask = Task.AutoUpdate;
+    private Task nowTask = Task.AutoUpdate;
     private Thread taskThread = null;
 
     @Override
@@ -81,7 +79,7 @@ public class MenuListUpdateService extends Service implements Runnable {
             OpenHelperManager.releaseHelper();
             startService(new Intent(this, ScheduleManagedService.class));
             updateSuccess = true;
-        } catch (SQLException | IOException e) {
+        } catch (SQLException | IOException | IllegalAccessException e) {
             TrackHelper.sendException(e);
         }
 

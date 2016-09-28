@@ -7,9 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TimePicker;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class SettingTimePickerDialog extends DialogPreference {
     private TimePicker picker;
     private int hour;

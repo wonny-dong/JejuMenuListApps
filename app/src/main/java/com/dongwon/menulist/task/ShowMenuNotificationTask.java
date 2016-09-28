@@ -28,9 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by dongwon-dev on 2015-04-20.
- */
+
 public class ShowMenuNotificationTask extends AsyncTask<String, Void, MealMenu> {
     private static final int ID_NOTIFICATION_LUNCH = 201;
     private static final int ID_NOTIFICATION_DINNER = 202;

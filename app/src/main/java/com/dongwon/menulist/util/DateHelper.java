@@ -9,9 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by dongwon-dev on 2015-04-22.
- */
+
 public class DateHelper {
     public static final long MILLISECOND_SECOND = 1000;
     public static final long MILLISECOND_MINUTE = MILLISECOND_SECOND * 60;
@@ -21,7 +19,7 @@ public class DateHelper {
 
     public static Date getDate(int year, int month, int day, int hour, int min){
         try {
-            return dateFormat.parse(String.format("%4d-%2d-%2d %2d:%2d", year, month, day, hour, min));
+            return dateFormat.parse(String.format(Locale.KOREA, "%4d-%2d-%2d %2d:%2d", year, month, day, hour, min));
         } catch (ParseException e) {
             TrackHelper.sendException(e);
             return new Date();

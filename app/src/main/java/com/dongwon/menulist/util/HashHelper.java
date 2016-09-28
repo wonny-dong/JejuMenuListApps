@@ -6,9 +6,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by Dongwon on 2015-04-26.
- */
+
 public class HashHelper {
 
     public static String md5Hex(InputStream inputStream){
