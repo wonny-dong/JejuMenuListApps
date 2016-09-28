@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.dongwon.menulist.R;
-import com.dongwon.menulist.ui.fragment.BaseFragment;
 import com.dongwon.menulist.ui.fragment.MenuListFragment;
 import com.dongwon.menulist.ui.fragment.SettingsFragment;
 
@@ -84,15 +83,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public void onBackPressed() {
         Fragment fragment = getFragmentManager().findFragmentById(R.id.body_fragment);
-        if(fragment != null && fragment instanceof BaseFragment){
-            if(((BaseFragment)fragment).onBackPressed()){
-                return;
-            }
-        }
-
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawers();
-        }else{
+        } else if(fragment instanceof MenuListFragment == false){
+            onNavigationItemSelected(leftDrawer.getMenu().getItem(0));
+        } else{
             super.onBackPressed();
         }
     }

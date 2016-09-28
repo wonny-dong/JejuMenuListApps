@@ -1,11 +1,14 @@
 package com.dongwon.menulist.ui.fragment;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.support.v4.app.ActivityCompat;
 import com.dongwon.menulist.R;
 import com.dongwon.menulist.database.Values;
 import com.dongwon.menulist.service.ApkUpdateService;
@@ -32,7 +35,13 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         productUpdate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                getActivity().startService(new Intent(getActivity(), ApkUpdateService.class));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                        getActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+                }else{
+                    getActivity().startService(new Intent(getActivity(), ApkUpdateService.class));
+                }
                 return false;
             }
         });
