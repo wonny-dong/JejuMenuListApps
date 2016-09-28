@@ -28,12 +28,12 @@ public class HttpRequest {
     }
 
     public DayMenuJson[] getDayMenu(String fileName) throws IOException, IllegalAccessException {
-        return getJsonObject(context.getString(R.string.update_url) + fileName, DayMenuJson[].class);
+        return getJsonObject(context.getString(R.string.update_url) + "menuList/" + fileName, DayMenuJson[].class);
     }
 
-    public void getNewApk(File savePath, String urlPath) throws IOException, IllegalAccessException {
+    public void getNewApk(File savePath, String apkName) throws IOException, IllegalAccessException {
         Request request = new Request.Builder()
-                .url(context.getString(R.string.update_url) +urlPath)
+                .url(context.getString(R.string.update_url) + "apk/" + apkName)
                 .build();
         Response response = okHttpClient.newCall(request).execute();
 
