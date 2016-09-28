@@ -38,7 +38,7 @@ public class ApkUpdateService extends Service{
     private class ApkUpdateTask extends AsyncTask<Void,Void,Boolean>{
         private File savePath;
         public ApkUpdateTask() {
-            savePath = new File(Environment.getExternalStorageDirectory(), "/download/temp.apk");
+            savePath = new File(Environment.getExternalStorageDirectory(), "/download/newMenuList.apk");
         }
 
         @Override
@@ -46,7 +46,6 @@ public class ApkUpdateService extends Service{
             try{
                 HttpRequest request = new HttpRequest(getBaseContext());
                 FileInfoJson fileInfoJson = request.getFileInfo();
-
                 boolean wantUpdateApk = HashHelper.md5Hex(new FileInputStream(getPackageCodePath())).equals(fileInfoJson.getApkHash()) == false;
                 if(wantUpdateApk){
                     publishProgress();
