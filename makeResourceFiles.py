@@ -6,7 +6,7 @@ import codecs
 
 FILE_APK = 'menu-list-1.0.4.apk'
 FILE_MENU = 'menulist-17-01'
-YEAR = 2016
+YEAR = 2017
 RESOURCE_DIR = 'resources'
 
 
