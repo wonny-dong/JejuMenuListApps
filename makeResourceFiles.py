@@ -5,7 +5,7 @@ import json
 import codecs
 
 FILE_APK = 'menu-list-1.0.4.apk'
-FILE_MENU = 'menulist-16-12'
+FILE_MENU = 'menulist-17-01'
 YEAR = 2016
 RESOURCE_DIR = 'resources'
 
